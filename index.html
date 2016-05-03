@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Exercicios PDI</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <!--<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            
+            </div>
+			            
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="post.html">Sample Post</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+      
+    </nav>
+	-->
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('img/home-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div style="color: white">
+                        <h1 align="middle">Processamento Digital de Imagens</h1> 
+						<hr>
+                        <span class="subheading"> Autor: Felipe Fernandes de Miranda </span>
+						<p> <font size="5">Site criado para expor minhas resoluções das atividades da disciplina DCA0445, ministrada pelo professor
+							Agostinho de Medeiros Brito Junior</font>
+						</p>												
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+	
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-preview">
+					<h2>
+						Introdução
+					</h2>
+					<p align="justify">
+						Os exemplos que seram apresentados visam mostrar como o processamento digital de imagens usando OpenCV pode ser
+						útil. Para podermos compilar os códigos, será necessário o arquivo contendo o código-fonte a ser compilado e um arquivo 
+						contendo regras de compilação na forma de um <a href="recursos/Makefile">Makefile</a>(Clique no link para baixar o 
+						arquivo), que deve estar no mesmo diretório aonde o código a ser compilado se encontra.
+					</p>					
+                </div>
+				<div class="post-preview">
+					<h2>
+						Manipulando pixels em uma imagem
+					</h2>
+					<p align="justify">
+						No primeiro exercício, pede-se para o programa solicitar ao usuário as coordenadas de dois pontos(P1 e P2),
+						que deverão estar localizados dentro dos limites da imagem, e o programa tem que retornar a imagem original,
+						entretanto a região definida pelo retângulo de vértices opostos definidos pelos pontos P1 e P2 deverá mostrar
+						o negativo da imagem original na região correspondente. </br>					
+						A solução do problema é mostrada a seguir:</br>
+						<br>
+						<img src="recursos/ex1/ex1.png"><br>
+						Download do código: <a href="recursos/ex1/regions.cpp">regions.cpp</a>
+						<br>
+						<br>
+						Para compilar e executar o programa, salve-o juntamente com o arquivo Makefile e a imagem em um diretório e execute 
+						a seguinte seqüência de comandos no terminal:<br>
+						$ make regions<br>
+						$ ./regions nome_da_imagem.png<br>
+						<p>Antes: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Depois:</p>
+						<img src="recursos/biel.png">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<img src="recursos/ex1/resp-ex1.png">						
+					</p>
+					<p align="justify">
+						Na segunda parte do exercício, é solicitado que implemente um algoritmo que troque as regiões de uma imagem como se
+						fosse um quebra-cabeça, pediu-se ainda que nesse algoritmo fosse ultilizado alguns construtores da classe Mat. O algoritmo
+						desenvolvido é mostrado a seguir:
+						<br>
+						<br>
+						<img src="recursos/ex2/ex2.png"><br>
+						Download do código: <a href="recursos/ex2/trocaregioes.cpp">trocaregioes.cpp</a>
+						<br>
+						<br>
+						Para compilar e executar o programa, salve-o juntamente com o arquivo Makefile e a imagem em um diretório e execute 
+						a seguinte seqüência de comandos no terminal:<br>
+						$ make trocaregioes<br>
+						$ ./trocaregioes nome_da_imagem.png<br>
+						<p>Antes: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Depois:</p>
+						<img src="recursos/biel.png">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<img src="recursos/ex2/resp-ex2.png">
+					</p>                
+                </div>
+				<div class="post-preview">
+					<h2>
+						Preenchendo regiões
+					</h2>
+					<p align="justify">
+						No programa <a href="recursos/ex3/labeling.cpp">labeling.cpp</a> que é fornecido, percebe-se que ele preenche os objetos 
+						com tons de cinza diferentes, porém os tons de cinza variam de 0 à 255, causando um problema quando tiver mais de 256 
+						elementos no imagem, a primeira parte do exercício pede para achar uma solução para este problema. A solução encontrada 
+						é passar o módulo da quantidade de elementos na função floodFill, nesse caso quando chegar em 256 elementos ele ira resetar
+						o valor e nunca irá passar de 255 na tom fornecido para preencimento dos elementos. <br>
+						A parte do código que será diferente do labeling.cpp está apresentado a seguir:
+						<br>
+						<br>						
+						<img src="recursos/ex3/resp-ex3.png"><br>
+					</p>
+					<p align="justify">
+						Na segunda parte do exercício, é solicitado que implemente um algoritmo para contar o números de elementos com e sem buracos de
+						uma imagem, que possui apenas duas cores: preto(plano de fundo) e branco(elemento). Assumindo que elementos com mais 
+						de um buraco podem existir e ainda pediu para desconsiderar os elementos que tocam a borda da imagem.<br>
+						<br>
+						Primeiro passo é remover os elementos quem tocam as bordas da imagem, para isso é necessário aplicar uma margem de 1 pixel 
+						de cor branca, e depois aplicar o floodFill no primeiro pixel da imagem. Este procedimento irá preencher toda a margem e os 
+						elementos, que a tocam, de preto.<br>
+						<br>
+						Após remover os elementos das bordas, aplica-se novamente o floodFill no primeiro pixel para o tom de cinza 1, para diferenciar
+						o plano de fundo dos buracos(que continuaram com tom de cinza 0). Depois disso, percorre-se a imagem, procurando-se por tons de
+						cinza igual a 255, e aplicando-se o floodFill para preencher todos os elementos com o tom de cinza 200(sem buracos), guardando em
+						uma variável a quantidade total de elementos. <br>
+						<br>
+						O ultimo passo é encontrar os elementos com buracos, e como todos estão marcados como sem buracos, deve-se percorrer a imagem
+						e a cada iteração guardar o pixel anterior, e quando encontrar um pixel preto(buraco) aplicar o floodFill no pixel anterior para
+						para pintar o elemento com tom de cinza 100(com buraco), e adicionando em uma variável de quantidade de elementos com buraco sempre
+						que isso ocorrer. No final para saber o número de elementos sem buraco e só subtrair o total de elementos dos que possuem buraco.<br>
+						<br>
+						O algoritmo modificado é mostrado a seguir: 
+						<br>
+						<br>
+						<img src="recursos/ex4/resp-ex4-1.png" width="570px"><br>
+						<img src="recursos/ex4/resp-ex4-2.png" width="570px"><br>
+						<img src="recursos/ex4/resp-ex4-3.png" width="570px"><br>
+						<img src="recursos/ex4/resp-ex4-4.png" width="570px"><br>
+						<img src="recursos/ex4/resp-ex4-5.png" width="570px"><br>
+						Download do código: <a href="recursos/ex4/labeling_modificado.cpp">labeling_modificado.cpp</a>
+						<br>
+						<br>
+						Para compilar e executar o programa, salve-o juntamente com o arquivo Makefile e a imagem em um diretório e execute 
+						a seguinte seqüência de comandos no terminal:<br>
+						$ make labeling_modificado<br>
+						$ ./labeling_modificado nome_da_imagem.png<br>
+						<p>Antes: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Depois:</p>
+						<img src="recursos/bolhas.png">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<img src="recursos/ex4/labeling.png"><br>
+						<p>
+						Console: Quantidade de elementos sem bolhas: 12 <br>
+					    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								Quantidade de elementos com bolhas: 9
+						</p>
+					</p>
+                </div>
+				<div class="post-preview">
+					<h2>
+						Manipulação de histogramas
+					</h2>
+					<p align="justify">
+						No primeiro exercício deste tópico, pede-se para desenvolver um programa que realize a equalização, que é o processo
+						de espalhamento do histograma de uma imagem, o que gera um aumento no contraste e uma melhor distribuição do nível de 
+						intensidade(brilho) das cores do que na imagem original.<br>						
+						<br>						
+						O código fornecido (<a href="recursos/ex5/histogram.cpp">histograma</a>) foi desenvolvido para captura de vídeo, 
+						mas para demonstração usaremos uma imagem para
+						mostrar o efeito da equalização, porém o código de solução do exercício serve para vídeo como o original.<br>
+						O código da solução é mostrado a seguir:<br>
+						<img src="recursos/ex5/resp-ex5-1.png" width="607px"><br>
+						<img src="recursos/ex5/resp-ex5-2.png" width="607px"><br>
+						<img src="recursos/ex5/resp-ex5-3.png" width="607px"><br>
+						<img src="recursos/ex5/resp-ex5-4.png" width="607px"><br>
+						Download do código: <a href="recursos/ex5/equalize.cpp">equalize.cpp</a>
+						<br>
+						<br>
+						Para compilar e executar o programa, salve-o juntamente com o arquivo Makefile em um diretório e execute 
+						a seguinte seqüência de comandos no terminal:<br>
+						$ make equalize<br>
+						$ ./equalize<br>
+						<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Imagem:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Histograma:</p>
+						Original:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<img src="recursos/ex5/img_original.png"><img src="recursos/ex5/hist_original.png">
+						Equalizada:
+						<img src="recursos/ex5/img_equalizada.png"><img src="recursos/ex5/hist_equalizado.png" width="374px">		
+					</p>
+					<p align="justify">
+						Na segunda parte do exercício, é solicitado que implemente um algoritmo que deverá continuamente calcular o histograma da imagem 
+						e compará-lo com o último histograma calculado. Quando a diferença entre estes ultrapassar um limiar pré-estabelecido, deverá ser
+						mostrar um alarme(pintar de vermelho aonde houver movimento) ao usuário.
+						O algoritmo desenvolvido é mostrado a seguir:<br>
+						<br>
+						<img src="recursos/ex6/resp-ex6-1.png" width="722px"><br>
+						<img src="recursos/ex6/resp-ex6-2.png" width="722px"><br>
+						<img src="recursos/ex6/resp-ex6-3.png" width="722px"><br>
+						<img src="recursos/ex6/resp-ex6-4.png" width="722px"><br>
+						Download do código: <a href="recursos/ex6/motiondetector.cpp">motiondetector.cpp</a>
+						<br>
+						<br>
+						Para compilar e executar o programa, salve-o juntamente com o arquivo Makefile em um diretório e execute 
+						a seguinte seqüência de comandos no terminal:<br>
+						$ make motiondetector<br>
+						$ ./motiondetector<br>
+						<p>Sem movimento: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						Com movimento:</p>
+						<img src="recursos/ex6/sem_mov.png">
+						<img src="recursos/ex6/com_mov.png">
+					</p>                
+                </div>
+				<div class="post-preview">
+					<h2>
+						Filtragem no domínio espacial
+					</h2>
+					<p align="justify">
+						Neste tópico, o exercício pede para modificar o código fornecido <a href="recursos/ex7/filtroespacial.cpp">filtroespacial</a> para
+						que seja adicionado uma nova funcionalidade, que é o filtro laplaciano do gaussiano. Para isso foi usado a seguinte matriz como filtro:<br>
+						<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<img src="recursos/ex7/mask.png"><br>
+						<br>
+						Neste caso as unicas modificações necessárias no código original são:<br>
+						- Adicionar uma nova matriz para o filtro laplaciano do gaussiano.<br>
+						- Adicionar um novo "case" no código para aplicar a nova matriz.<br>
+						<br>
+						Essas alterações são mostradas a seguir:<br>
+						<br>
+						<img src="recursos/ex7/matriz.png"> <img src="recursos/ex7/case.png" height="111px"><br>
+						Download do código modificado: <a href="recursos/ex7/laplgauss.cpp">laplgauss.cpp</a>
+						<br>
+						<br>
+						Para compilar e executar o programa, salve-o juntamente com o arquivo Makefile em um diretório e execute 
+						a seguinte seqüência de comandos no terminal:<br>
+						$ make laplgauss<br>
+						$ ./laplgauss<br>
+						<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Imagem original:</p>						
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;<img src="recursos/ex7/original.png" width="570px" height="480px"><br>
+						<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Imagem com Laplaciano:(Clicando H)</p>						
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;<img src="recursos/ex7/lapl.png" width="570px" height="480px"><br>
+						<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						Imagem com Laplaciano do Gaussiano(Clicando Z):</p>						
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;<img src="recursos/ex7/laplgauss.png" width="570px" height="480px"><br>							
+					</p>					
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <!--
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+	-->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
